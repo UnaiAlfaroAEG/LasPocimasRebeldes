@@ -2,7 +2,7 @@ import '../App.css'
 import React, {useState} from 'react'
 import axios from "axios"
 import BattleScreen from './BattleScreen';
-
+import AppContext from '../context';
 
 function PrimaryScreen() {
   const [viewBattleScreen, setViewBattleScreen] = useState(false);
@@ -27,7 +27,7 @@ function PrimaryScreen() {
 }
   
   return(
-    <>
+    <AppContext.Provider value={{potions_data:data}}>
     {viewBattleScreen === false ? 
       (<div className="InitialContainer">
         <div className="SecondayContainer">
@@ -37,10 +37,10 @@ function PrimaryScreen() {
           </button>
         </div>
       </div>): 
-      (<BattleScreen data={data} />)
+      (<BattleScreen/>)
       }
     
-    </>
+    </AppContext.Provider>
     
   )
 
