@@ -48,6 +48,8 @@ function BattleScreen() {
     console.log("twoPotionsCatch")
     console.log(two_potion)
     console.log(twoPotionsCatch)
+
+    
     
   },[]);
 
