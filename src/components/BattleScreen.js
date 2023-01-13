@@ -9,7 +9,7 @@ function BattleScreen() {
   const context_data = context.potions_data;
   const potions_data = context_data.data;
 
-  const [twoPotionsCatch, setTwoPotionsCatch] = useState([])
+  let [twoPotionsCatch, setTwoPotionsCatch] = useState([])
 
 
   const catchAleatoryPotion = () => {
@@ -49,7 +49,7 @@ function BattleScreen() {
     console.log(two_potion)
     console.log(twoPotionsCatch)
 
-    
+
     
   },[]);
 
@@ -60,10 +60,21 @@ function BattleScreen() {
             <>
                 <div>
                     <p>Pocion 1:</p>
-                    <p></p>
+                    <p>Name: </p>
+                    <p>Alias:</p>
+                    <p>Cube:</p>
+                    <p>Curative:</p>
+                    <p>Mana:</p>
+                    <p>Power:</p>
                 </div>
                 <div>
                     <p>Pocion 2:</p>
+                    <p>Name: </p>
+                    <p>Alias:</p>
+                    <p>Cube:</p>
+                    <p>Curative:</p>
+                    <p>Mana:</p>
+                    <p>Power:</p>
                 </div>
             </>
         )}
