@@ -6,7 +6,12 @@ import AppContext from '../context';
 
 function PrimaryScreen() {
   const [viewBattleScreen, setViewBattleScreen] = useState(false);
+  const [potion1, setPotion1] = useState(null);
+  const [potion2, setPotion2] = useState(null);
   const [data, setData] = useState(null)
+  const [winnerPotion, setWinnerPotion] = useState(null)
+  const [loserPotion, setloserPotion] = useState(null)
+
 
   const ReceivePotions = () => {
 
@@ -22,12 +27,28 @@ function PrimaryScreen() {
     .catch(error => {
       alert(error)
     });
-
-    
 }
+
+
+const handlePotion1 = (potion) => {
+  setPotion1(potion)
+}
+const handlePotion2 = (potion) => {
+  setPotion2(potion)
+} 
+
+const handleWinnerPotion = (potion) =>{
+  setWinnerPotion(potion)
+}
+
+const handleLoserPotion = (potion) =>{
+  setloserPotion(potion)
+}
+
+
   
   return(
-    <AppContext.Provider value={{potions_data:data}}>
+    <AppContext.Provider value={{potions_data:data, potion1: potion1, potion2:potion2,winnerPotion,loserPotion, handlePotion1, handlePotion2,handleWinnerPotion,handleLoserPotion}}>
     {viewBattleScreen === false ? 
       (<div className="InitialContainer">
         <div className="SecondayContainer">

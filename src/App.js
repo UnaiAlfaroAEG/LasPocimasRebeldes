@@ -1,7 +1,5 @@
 import './App.css';
-import React,{useState} from 'react'
-import axios from "axios"
-import BattleScreen from './components/BattleScreen';
+import React from 'react'
 import PrimaryScreen from './components/PrimaryScreen';
 
 
