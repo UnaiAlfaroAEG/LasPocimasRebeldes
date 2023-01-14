@@ -73,8 +73,8 @@ function BattleScreen() {
     let potion1_penalty = potion1.cube * 0.1 * potion1.power
     let potion2_penalty = potion2.cube * 0.1 * potion2.power
 
-    let potion1_points = (potion1.cube * 0.1 * (potion1.power-potion1_penalty) / potion1.mana).toFixed(2)
-    let potion2_points = (potion2.cube * 0.1 * (potion2.power-potion2_penalty) / potion2.mana).toFixed(2)
+    let potion1_points = ((potion1.cube * 0.1 * (potion1.power-potion1_penalty)) / potion1.mana).toFixed(2)
+    let potion2_points = ((potion2.cube * 0.1 * (potion2.power-potion2_penalty)) / potion2.mana).toFixed(2)
 
     let potion_winner = null
     let potion_loser = null
@@ -110,13 +110,22 @@ function BattleScreen() {
     <>
     {viewResult  ? (<ResultScreen/>) : context.potion1 && context.potion2  ? (
             <>
-                <div>
+                <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around',marginTop:'200px', marginBottom:'20px'}}>
                   <div>
-                    <img src={context.potion1.curative ? curative : nocurative}/>
+                    <img alt="Potion type" src={context.potion1.curative ? curative : nocurative} style={{height: 250}}/>
                   </div>
                   <div>
-                    <img src={context.potion1.cube == 1 ? cube1 : context.potion1.cube === 2 ? cube2 : context.potion1.cube === 3 ? cube3 : context.potion1.cube === 4 ? cube4 : context.potion1.cube === 5 ? cube5 : context.potion1.cube === 6 ? cube6 : null} />
+                    <img style={{height: 200}} alt="Potion cube" src={context.potion1.cube == 1 ? cube1 : context.potion1.cube === 2 ? cube2 : context.potion1.cube === 3 ? cube3 : context.potion1.cube === 4 ? cube4 : context.potion1.cube === 5 ? cube5 : context.potion1.cube === 6 ? cube6 : null} />
                   </div>
+                  <div>
+                    <img style={{height: 200}} alt="Potion cube" src={context.potion2.cube === 1 ? cube1 : context.potion2.cube === 2 ? cube2 : context.potion2.cube === 3 ? cube3 : context.potion2.cube === 4 ? cube4 : context.potion2.cube === 5 ? cube5 : context.potion2.cube === 6 ? cube6 : null} />
+                  </div>
+                  <div>
+                    <img alt="Potion type" src={context.potion2.curative ? curative : nocurative} style={{height: 250}}/>
+                  </div>
+                  
+                </div>
+                <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom:'50px'}}>
                   <div className="LittleFont">
                     <p>name: {context.potion1.name}</p>
                     <p>alias: {context.potion1.alias}</p>
@@ -124,15 +133,7 @@ function BattleScreen() {
                     <p>power: {context.potion1.power}</p>
                     <p>mana: {context.potion1.mana}</p>
                   </div>
-                </div>
-                <div>
-                  <div>
-                    <img src={context.potion2.curative ? curative : nocurative}/>
-                  </div>
-                  <div>
-                  <img src={context.potion2.cube === 1 ? cube1 : context.potion2.cube === 2 ? cube2 : context.potion2.cube === 3 ? cube3 : context.potion2.cube === 4 ? cube4 : context.potion2.cube === 5 ? cube5 : context.potion2.cube === 6 ? cube6 : null} />
-                  </div>
-                  <div className="LittleFont">
+                  <div className="LittleFont" >
                     <p>name: {context.potion2.name}</p>
                     <p>alias: {context.potion2.alias}</p>
                     <p>curative: {context.potion2.curative.toString()}</p>
@@ -140,7 +141,7 @@ function BattleScreen() {
                     <p>mana: {context.potion2.mana}</p>
                   </div>
                 </div>
-                <div >
+                <div style={{display:'flex', flexDirection: 'row', justifyContent: 'center'}}>
                   <button className= "PrincipalBoton" onClick={() => battleWinner(context.potion1,context.potion2)}>Launch battle</button>
                 </div>
             </>

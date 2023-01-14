@@ -24,20 +24,23 @@ return(
     <>
     {viewBattleScreen  ? (<BattleScreen/>) : (<div>
         <div>
-            {console.log(context)}
-            <div>
-                <img src={context.winnerPotion.potion.curative ? curative : nocurative}/>
+            <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around',marginTop:'200px', marginBottom:'20px'}}>
+                <div>
+                    <img  src={context.winnerPotion.potion.curative ? curative : nocurative} style={{height: 250}}/>
+                </div>
+                <div>
+                    <img style={{height: 200}} src={context.winnerPotion.potion.cube === 1 ? cube1 : context.winnerPotion.potion.cube === 2 ? cube2 : context.winnerPotion.potion.cube === 3 ? cube3 : context.winnerPotion.potion.cube === 4 ? cube4 : context.winnerPotion.potion.cube === 5 ? cube5 : context.winnerPotion.potion.cube === 6 ? cube6 : null}/>
+                </div>
             </div>
-            <div>
-                <img src={context.winnerPotion.potion.cube === 1 ? cube1 : context.winnerPotion.potion.cube === 2 ? cube2 : context.winnerPotion.potion.cube === 3 ? cube3 : context.winnerPotion.potion.cube === 4 ? cube4 : context.winnerPotion.potion.cube === 5 ? cube5 : context.winnerPotion.potion.cube === 6 ? cube6 : null}/>
-            </div>
-            <div>
-                <p>Resultado de la poción ganadora: {context.winnerPotion.result_winner} = {context.winnerPotion.points}</p>
-                <p>Resultado de la poción perdedora: {context.loserPotion.result_loser} = {context.loserPotion.points}</p>
+            <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom:'50px'}}>
+                <div className="LittleFont">
+                    <p>Resultado de la poción ganadora: {context.winnerPotion.result_winner} = {context.winnerPotion.points}</p>
+                    <p>Resultado de la poción perdedora: {context.loserPotion.result_loser} = {context.loserPotion.points}</p>
+                </div>
             </div>
         </div>
-        <div>
-            <button onClick={handleButtonPlayAgain}>PLAY AGAIN</button>
+        <div style={{display:'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <button className= "PrincipalBoton" onClick={handleButtonPlayAgain}>PLAY AGAIN</button>
         </div>
     </div>)}
     </> 
