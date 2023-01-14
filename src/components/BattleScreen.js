@@ -115,10 +115,9 @@ function BattleScreen() {
                     <img src={context.potion1.curative ? curative : nocurative}/>
                   </div>
                   <div>
-                    
                     <img src={context.potion1.cube == 1 ? cube1 : context.potion1.cube === 2 ? cube2 : context.potion1.cube === 3 ? cube3 : context.potion1.cube === 4 ? cube4 : context.potion1.cube === 5 ? cube5 : context.potion1.cube === 6 ? cube6 : null} />
                   </div>
-                  <div>
+                  <div className="LittleFont">
                     <p>name: {context.potion1.name}</p>
                     <p>alias: {context.potion1.alias}</p>
                     <p>curative: {context.potion1.curative.toString()}</p>
@@ -133,7 +132,7 @@ function BattleScreen() {
                   <div>
                   <img src={context.potion2.cube === 1 ? cube1 : context.potion2.cube === 2 ? cube2 : context.potion2.cube === 3 ? cube3 : context.potion2.cube === 4 ? cube4 : context.potion2.cube === 5 ? cube5 : context.potion2.cube === 6 ? cube6 : null} />
                   </div>
-                  <div>
+                  <div className="LittleFont">
                     <p>name: {context.potion2.name}</p>
                     <p>alias: {context.potion2.alias}</p>
                     <p>curative: {context.potion2.curative.toString()}</p>
@@ -141,8 +140,8 @@ function BattleScreen() {
                     <p>mana: {context.potion2.mana}</p>
                   </div>
                 </div>
-                <div>
-                  <button onClick={() => battleWinner(context.potion1,context.potion2)}>Launch battle</button>
+                <div >
+                  <button className= "PrincipalBoton" onClick={() => battleWinner(context.potion1,context.potion2)}>Launch battle</button>
                 </div>
             </>
         ) : null}
